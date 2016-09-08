@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+	<style>
+		div{
+			height: 100px;
+			width: 400px;
+			background: pink;
+		}
+		.red{
+			background: red;
+		}
+		.blue{
+			background: blue;
+		}
+		.black{
+			background: black;
+		}
+	</style>
+</head>
+<body>
+   红色：<input type="checkbox" ng-model="red">&nbsp蓝色：<input type="checkbox" ng-model="blue">&nbsp黑色：<input type="checkbox" ng-model="black">
+   <div ng-class="{red:red,blue:blue,black:black}"></div>
+
+<script type="text/javascript">
+   // angular.module("myApp",[])
+   // .controller("bgChange",function($scope){
+   // 		$scope.data = {
+   // 			red:false,
+   // 			blue:false,
+   // 			black:false
+   // 		}
+
+   // })
+</script>
+</body>
+</html>
