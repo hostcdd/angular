@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="TestCtrl">
+     <!--  {{ data | filter: 'b' }} <br /> -->
+      {{ data | filter: '!B' }} <br />
+    </div>
+
+
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+    .controller('TestCtrl', function($scope){
+      $scope.data = [
+        {name: 'B', age: 4},  
+        {name: 'A', age: 1},  
+        {name: 'D', age: 3},  
+        {name: 'C', age: 3},  
+      ];
+    });
+  //  angular.bootstrap(document.documentElement, ['app']);
+</script>
+</body>
+</html>

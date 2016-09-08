@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+</head>
+<body ng-controller="myHttp">
+	<ul ng-repeat="name in list">
+		<li>{{name}}</li>
+	</ul>
+
+
+	<script>
+		angular.module('app',[])
+		.controller("myHttp",function($scope,$http){
+			$http.get("http://www.runoob.com/try/angularjs/data/Customers_JSON.php")	//跨域
+			.success(function(data){
+				$scope.list = data.records;
+			});
+		});
+		angular.bootstrap(document,["app"]);
+	</script>
+</body>
+</html>

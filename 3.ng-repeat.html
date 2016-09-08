@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+</head>
+<body ng-app="app" ng-controller="myApp">
+	<ul ng-repeat="name in list">
+		<li>{{name}}</li>
+	</ul>
+<script>
+angular.module('app',[])
+.controller('myApp',function($scope){
+	$scope.list = ['1.H5','2.JS','3.CSS3']
+});
+//angular.bootstrap(document,['app'])
+</script>
+</body>
+
+</html>

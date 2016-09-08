@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+</head>
+<body ng-app='watch'>
+    <input ng-model='name' type='text'/>
+    <div>change count: {{count}}</div>
+    <script>
+        angular.module('watch',[])
+                     .run(['$rootScope',function($rootScope){
+                            $rootScope.count = 0;
+                            $rootScope.name = 'Alfred';
+                            $rootScope.$watch('name',function(){
+                                $rootScope.count++;
+                            })
+                     }]);
+    </script>
+</body>
+</html>
