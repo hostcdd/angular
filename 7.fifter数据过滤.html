@@ -5,6 +5,7 @@
 	<title>Document</title>
 	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
 	<script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
 </head>
 <body ng-controller="myApp">
  数据过滤：<input type="text" placeholder="数据过滤" ng-model="dataInfo">
@@ -24,7 +25,7 @@
  <button ng-click="addNew()">添加</button>
 
  <script>
- angular.module("app",[])
+ angular.module("app",['ngAnimate'])
  .controller("myApp",["$scope",function($scope){
  	//方法1
  	$scope.addNew = function(){
@@ -46,7 +47,7 @@
    //      // 清空输入对象集合，也可清除单个对象：$scope.newPerson.name = '';
    //      $scope.newPerson = '';
    //  }
-    
+
  }])
  </script>
 </body>
