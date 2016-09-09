@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+</head>
+<body ng-controller="myApp">
+ 数据过滤：<input type="text" placeholder="数据过滤" ng-model="dataInfo">
+ <ul ng-init="list=[
+	{name:'a王思聪',age:28},
+	{name:'b王健林',age:58},
+	{name:'c林更新',age:28},
+	{name:'d徐静蕾',age:36},
+	{name:'e周迅',age:48}
+ ]">
+ 	<li ng-repeat="info in list | filter:dataInfo">{{$index+1}}、{{info.name}}今年{{info.age}}岁</li>	<!--filter:过滤的信息=>数据源-->
+ </ul>
+ <h4>增加新人</h4>
+ <br>
+ 姓名：<input id="name" type="text" ng-model="newPerson.name" placeholder="新人姓名">
+ 年龄：<input id="age" type="text" ng-model="newPerson.age" placeholder="新人的年龄">
+ <button ng-click="addNew()">添加</button>
+
+ <script>
+ angular.module("app",[])
+ .controller("myApp",["$scope",function($scope){
+ 	//方法1
+ 	$scope.addNew = function(){
+ 		var name = $("#name").val(),
+ 			age = $("#age").val();
+        if(name && age){
+        	$scope.list.push({
+        		name:name,
+        		age:age
+        	})
+        }
+ 	}
+ 	//方法2
+ 	 // $scope.addNew = function(){
+   //      $scope.list.push({
+   //          name: $scope.newPerson.name,
+   //          age: $scope.newPerson.age
+   //      });
+   //      // 清空输入对象集合，也可清除单个对象：$scope.newPerson.name = '';
+   //      $scope.newPerson = '';
+   //  }
+    
+ }])
+ </script>
+</body>
+</html>
