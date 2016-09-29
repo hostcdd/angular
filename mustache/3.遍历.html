@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.遍历</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="mustache.js"></script>
+</head>
+<body>
+	<div id="template">
+		{{#list}}
+			<li>{{name}}</li>
+		{{/list}}
+	</div>
+	<script>
+	var template = $('#template').html();
+	var obj = {
+			"list":[
+			{"name":"Tom"},
+			{"name":"Jack"},
+			{"name":""},
+			{"name":"LiLi"},
+			{"name":"韩梅"}
+			]
+		};
+	var render = Mustache.render(template,obj);
+	$('#template').html(render);
+	</script>
+</body>
+</html>

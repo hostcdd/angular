@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mustache</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="mustache.js"></script>
+	<script>
+	$(function(){
+		var template = $('#template').html();				//获取渲染模板
+		var obj = {"name":"world"};							//数据源
+		var render = Mustache.render(template,obj);			//模板渲染，返回
+		$('#target').html(render);							//把返回值放入
+	});
+	</script>
+</head>
+<body>
+	<div id="target">loading....</div>
+
+	<script id="template" type="x-tmpl-mustache">
+		hello,{{name}}!
+	</script>
+</body>
+</html>

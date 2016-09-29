@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.mustache</title>
+	<script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+	<script type="text/javascript" src="mustache.js"></script>
+</head>
+<body>
+	<div id="template">
+		你好 <b>{{name}}</b>
+	    你已经赢取 <b>{{value}} </b>美元!
+	    <!-- 如果里面的值是false则不显示，如“0”，“undefined”，“false” ，“null”，“”，“[]”相当于判断-->
+	    {{#in_ca}}
+	        非常棒, <b>{{taxed_value}} </b>美元即将到账.
+	    {{/in_ca}}
+	</div>
+</body>
+<script>
+$(function(){
+var template = $('#template').html(),
+    obj = {
+      "name": "Chris",
+      "value": 10000,
+      "taxed_value": 10000 - (10000 * 0.4),
+      "in_ca": true
+    };
+
+    var render = Mustache.render(template,obj);
+    $('#template').html(render);
+
+});
+</script>
+</html>
